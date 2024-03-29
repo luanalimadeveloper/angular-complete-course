@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'product-list',
@@ -533,7 +533,14 @@ export class ProductListComponent {
     }
   ];
 
-totalProductCount = this.products.length;
-totalProductInStock = this.products.filter(p => p.is_in_inventory === true).length;
-totalProductOutOfStock = this.products.filter(p => p.is_in_inventory === false).length;
+  totalProductCount = this.products.length;
+  totalProductInStock = this.products.filter(p => p.is_in_inventory === true).length;
+  totalProductOutOfStock = this.products.filter(p => p.is_in_inventory === false).length;
+
+  selectedFilterRadioButton: string = 'all';
+
+  onFilterChanged(value: string){
+    console.log('product ' + value);
+    this.selectedFilterRadioButton = value;
+  }
 }
