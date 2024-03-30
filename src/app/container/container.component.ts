@@ -8,6 +8,13 @@ import { NumberValueAccessor } from '@angular/forms';
 })
 export class ContainerComponent {
   listOfString: string[] = ['Mark', 'Severino', 'Luana', 'Joe', 'Monica'];
+
+  searchText: string = '';
+
+  setSearchText(value: string){
+    this.searchText = value;
+  }
+
 }
 
 

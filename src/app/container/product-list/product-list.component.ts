@@ -1,4 +1,4 @@
-import { Component, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'product-list',
@@ -543,4 +543,7 @@ export class ProductListComponent {
     console.log('product ' + value);
     this.selectedFilterRadioButton = value;
   }
+
+  @Input()
+  searchText: string = '';
 }
