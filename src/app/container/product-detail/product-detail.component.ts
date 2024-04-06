@@ -1,5 +1,6 @@
+import { ProductListComponent } from './../product-list/product-list.component';
 import { Product } from './../../Models/Product';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'product-detail',
@@ -7,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent {
-   product : Product;
+   @Input() productListComp: ProductListComponent = undefined;
+
+   product: Product; 
+
+   ngOnInit(){
+    this.product = this.productListComp.selectedProduct;
+   }
 }
